@@ -15,8 +15,6 @@ image.show()
 image.save()
 """
 
-file = pd.read_excel('info.xlsx')
-yurt = file.values
 filepaths = [
     'pictures/original/axolotl.png',
     'pictures/original/bee.png',
@@ -37,7 +35,8 @@ filepaths = [
     'pictures/original/zombie_piglin.png'
 ]
 
-data = yurt[0:5]
+file = pd.read_excel('info.xlsx')
+data = file.values
 for i in data:
     if i[1].lower() == "axolotl":
         image = Image.open('pictures/original/axolotl.png')
