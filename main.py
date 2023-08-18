@@ -2,10 +2,13 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 
-image = Image.open('pictures/creeper.jpeg')
-print(image.getbbox())
+font = ImageFont.truetype('fonts/MinecraftTen-VGORe.ttf', 200)
+
+image = Image.open('pictures/original/creeper.png')
+bounds = image.getbbox()
 font = ImageFont.truetype('fonts/MinecraftTen-VGORe.ttf', 200)
 
 I1 = ImageDraw.Draw(image)
-I1.text((image.getbbox()[2] / 6, image.getbbox()[3] / 2.5), "Ethan", font = font, fill = (0, 0, 0))
+length = I1.textlength("Ethan", font = font)
+I1.text(((bounds[2] - length) / 2, 1250), "Ethan", font = font, fill = (0, 0, 0), align = 'center')
 image.show()
