@@ -4,17 +4,6 @@ from PIL import ImageFont
 import pandas as pd
 import random
 
-"""font = ImageFont.truetype('fonts/MinecraftTen-VGORe.ttf', 200)
-image = Image.open('pictures/original/creeper.png')
-bounds = image.getbbox()
-font = ImageFont.truetype('fonts/MinecraftTen-VGORe.ttf', 200)
-I1 = ImageDraw.Draw(image)
-length = I1.textlength("Ethan", font = font)
-I1.text(((bounds[2] - length) / 2, 1250), "Ethan", font = font, fill = (0, 0, 0), align = 'center')
-image.show()
-image.save()
-"""
-
 filepaths = [
     'pictures/original/axolotl.png',
     'pictures/original/bee.png',
@@ -32,10 +21,12 @@ filepaths = [
     'pictures/original/turtle.png',
     'pictures/original/villager.png',
     'pictures/original/witch.png',
-    'pictures/original/zombie_piglin.png'
+    'pictures/original/zombie_piglin.png',
+    'pictures/original/blaze.png',
+    'pictures/original/mooshroom'
 ]
 
-file = pd.read_excel('info.xlsx')
+file = pd.read_excel('resident.xlsx')
 data = file.values
 for i in data:
     if i[1].lower() == "axolotl":
@@ -98,7 +89,7 @@ for i in data:
     I1 = ImageDraw.Draw(image)
     length = I1.textlength(name, font = font)
     I1.text(((bounds[2] - length) / 2, 1250), name, font = font, fill = (0, 0, 0), align = 'center')
-    image.save('pictures/final/' + name + '.png')
+    image.save('pictures/resident/' + name + '.png')
 
     
     
