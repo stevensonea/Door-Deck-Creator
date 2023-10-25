@@ -24,10 +24,47 @@ filepaths = [
 ]
 
 IMAGE_PER_PAGE = 6
-NUMBER_OF_PAGES = math.floor(len(filepaths / IMAGE_PER_PAGE))
+NUMBER_OF_PAGES = math.floor(len(filepaths) / IMAGE_PER_PAGE) + 1
 REMAINDER = len(filepaths) % IMAGE_PER_PAGE
+print(len(filepaths))
+print(NUMBER_OF_PAGES)
+print(REMAINDER)
 
+currentImageIndex = 0
+currentPageIndex = 1
+for i in range(0, NUMBER_OF_PAGES):
+    images = []
+    width = []
+    height = []
+    if currentPageIndex == NUMBER_OF_PAGES:
+        for j in range (0, REMAINDER):
+            currentImage = Image.open(filepaths[currentImageIndex])
+            images.append(currentImage)
+            width.append(currentImage.size[0])
+            height.append(currentImage.size[1])
+            currentImageIndex += 1
+    else:
+        for j in range(0, IMAGE_PER_PAGE):
+            currentImage = Image.open(filepaths[currentImageIndex])
+            images.append(currentImage)
+            width.append(currentImage.size[0])
+            height.append(currentImage.size[1])
+            currentImageIndex += 1
 
+    xCoordinate = [0, 0, 0, width[0], width[0], width[0]]
+    yCoordinate = [0, height[0], height[0] + height [0], 0, height[0], height[0] + height[0]]
+    newImage = Image.new('RGB', (images[0].size[0] * 2, images[0].size[1]*3))
+
+    if currentPageIndex == NUMBER_OF_PAGES:
+        for i in range(0, REMAINDER):
+            newImage.paste(images[i], (xCoordinate[i], yCoordinate[i]))
+
+    else:
+        for i in range(0, len(images)):
+            newImage.paste(images[i], (xCoordinate[i], yCoordinate[i]))
+        
+    newImage.save('pictures/pages/page' + str(currentPageIndex) + '.png')
+    currentPageIndex += 1
 
 
 """
