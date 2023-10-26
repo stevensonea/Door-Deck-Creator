@@ -26,9 +26,6 @@ filepaths = [
 IMAGE_PER_PAGE = 6
 NUMBER_OF_PAGES = math.floor(len(filepaths) / IMAGE_PER_PAGE) + 1
 REMAINDER = len(filepaths) % IMAGE_PER_PAGE
-print(len(filepaths))
-print(NUMBER_OF_PAGES)
-print(REMAINDER)
 
 currentImageIndex = 0
 currentPageIndex = 1
