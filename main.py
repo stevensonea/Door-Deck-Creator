@@ -26,7 +26,7 @@ filepaths = [
     'pictures/original/mooshroom'
 ]
 
-file = pd.read_excel('resident.xlsx')
+file = pd.read_excel('special1.xlsx')
 data = file.values
 for i in data:
     if i[1].lower() == "axolotl":
@@ -89,7 +89,7 @@ for i in data:
     I1 = ImageDraw.Draw(image)
     length = I1.textlength(name, font = font)
     I1.text(((bounds[2] - length) / 2, 1250), name, font = font, fill = (0, 0, 0), align = 'center')
-    image.save('pictures/resident/' + name + '.png')
+    image.save('pictures/special/' + name + '.png')
 
     
     

@@ -1,7 +1,7 @@
 from PIL import Image
 import math
 
-filepaths = [
+"""filepaths = [
     'pictures/singles/axolotl.png',
     'pictures/singles/bee.png',
     'pictures/singles/cat.png',
@@ -21,10 +21,18 @@ filepaths = [
     'pictures/singles/zombie_piglin.png',
     'pictures/singles/blaze.png',
     'pictures/singles/mooshroom.png'
+]"""
+filepaths = [
+    'pictures/special/Grace.png',
+    'pictures/special/Leslie.png'
 ]
 
-IMAGE_PER_PAGE = 6
-NUMBER_OF_PAGES = math.floor(len(filepaths) / IMAGE_PER_PAGE) + 1
+IMAGE_PER_PAGE = 2
+NUMBER_OF_PAGES = 0
+if len(filepaths) % IMAGE_PER_PAGE == 0:
+    NUMBER_OF_PAGES = len(filepaths) / IMAGE_PER_PAGE
+else:
+    NUMBER_OF_PAGES = math.floor(len(filepaths) / IMAGE_PER_PAGE) + 1
 REMAINDER = len(filepaths) % IMAGE_PER_PAGE
 
 currentImageIndex = 0
@@ -60,7 +68,7 @@ for i in range(0, NUMBER_OF_PAGES):
         for i in range(0, len(images)):
             newImage.paste(images[i], (xCoordinate[i], yCoordinate[i]))
         
-    newImage.save('pictures/pages/page' + str(currentPageIndex) + '.png')
+    newImage.save('pictures/special/page' + str(currentPageIndex) + '.png')
     currentPageIndex += 1
 
 
