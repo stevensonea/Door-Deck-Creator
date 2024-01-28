@@ -1,7 +1,6 @@
 # Test Excel Files #
 ####################
-*.xlsx
+
 
 # Output Files #
 ################
-*.png
