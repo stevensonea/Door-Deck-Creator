@@ -1,6 +1,7 @@
 # Test Excel Files #
 ####################
 *.xlsx
+*.csv
 
 # Output Files #
 ################
