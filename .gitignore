@@ -6,3 +6,9 @@
 # Output Files #
 ################
 *.png
+
+# Test Files #
+##############
+playground.py
+test.py
+debug.py
